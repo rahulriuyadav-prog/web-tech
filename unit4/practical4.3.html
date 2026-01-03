@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 17: Event Listeners</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center; }
+        #box { 
+            width: 300px; height: 150px; line-height: 150px;
+            background: #3498db; color: white; margin: 20px auto;
+            border-radius: 10px; cursor: pointer; transition: 0.3s;
+        }
+        .active { background: #e74c3c !important; transform: scale(1.05); }
+        #log { font-family: monospace; color: #555; background: #eee; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Mouse & Keyboard Events</h2>
+    <div id="box">Click or Hover Me</div>
+    <p>Press any key on your keyboard!</p>
+    
+    <button id="stopBtn">Stop Listening to Mouse</button>
+    <div id="log">Event Log: Ready...</div>
+
+    <script>
+        const box = document.getElementById("box");
+        const log = document.getElementById("log");
+        const stopBtn = document.getElementById("stopBtn");
+
+        // --- 1. MOUSE EVENTS ---
+        function handleMouseClick() {
+            box.classList.toggle("active");
+            log.innerHTML = "Event: Mouse Clicked!";
+        }
+
+        function handleMouseOver() {
+            box.innerHTML = "Hovering!";
+        }
+
+        function handleMouseOut() {
+            box.innerHTML = "Click or Hover Me";
+        }
+
+        // Attaching listeners
+        box.addEventListener("click", handleMouseClick);
+        box.addEventListener("mouseover", handleMouseOver);
+        box.addEventListener("mouseout", handleMouseOut);
+
+
+        // --- 2. KEYBOARD EVENTS ---
+        // 'window' listens to keys no matter where the mouse is
+        window.addEventListener("keydown", function(event) {
+            log.innerHTML = "Event: Key Pressed — " + event.key;
+        });
+
+
+        // --- 3. REMOVE EVENT LISTENER ---
+        stopBtn.addEventListener("click", function() {
+            // This stops the click function from working on the box
+            box.removeEventListener("click", handleMouseClick);
+            box.style.opacity = "0.5";
+            box.style.cursor = "not-allowed";
+            log.innerHTML = "Status: Mouse Click Listener Removed!";
+        });
+    </script>
+
+</body>
+</html>

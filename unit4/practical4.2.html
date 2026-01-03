@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 16: Toggle & Visibility</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            padding: 30px; 
+            transition: background 0.3s, color 0.3s; 
+        }
+        /* A class we will toggle dynamically */
+        .dark-mode { 
+            background-color: #2c3e50; 
+            color: white; 
+        }
+        #ghost-box { 
+            width: 200px; 
+            padding: 20px; 
+            background: #f1c40f; 
+            margin: 20px 0; 
+            border-radius: 8px;
+            color: black;
+            text-align: center;
+        }
+        button { padding: 10px; cursor: pointer; margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>Visibility & Class Toggling</h2>
+
+    <div id="ghost-box">Now you see me! 👻</div>
+    <button onclick="hideBox()">Hide</button>
+    <button onclick="showBox()">Show</button>
+
+    <hr>
+
+    <p>Click below to toggle the 'dark-mode' CSS class on the body element.</p>
+    <button onclick="toggleNightMode()">Toggle Night Mode</button>
+
+    <script>
+        // 1. Logic for Showing and Hiding
+        function hideBox() {
+            // Setting display to 'none' removes it from the layout
+            document.getElementById("ghost-box").style.display = "none";
+        }
+
+        function showBox() {
+            // Setting display to 'block' brings it back
+            document.getElementById("ghost-box").style.display = "block";
+        }
+
+        // 2. Logic for Toggling CSS Classes
+        function toggleNightMode() {
+            // classList.toggle adds the class if it's missing, 
+            // and removes it if it's already there.
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 18: Element Manipulation</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .item-container { display: flex; align-items: center; margin-bottom: 5px; }
+        .list-item { background: #f9f9f9; padding: 8px; border: 1px solid #ddd; flex-grow: 1; }
+        .del-btn { background: #ff4d4d; color: white; border: none; padding: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Dynamic Task List</h2>
+    
+    <input type="text" id="userInput" placeholder="Type something...">
+    <button onclick="addItem()">Add to List</button>
+    <button onclick="clearAll()">Clear All</button>
+
+    <div id="list-container" style="margin-top: 20px;">
+        </div>
+
+    <script>
+        function addItem() {
+            const input = document.getElementById("userInput");
+            const container = document.getElementById("list-container");
+
+            if (input.value === "") return; // Don't add empty items
+
+            // 1. CREATE: Create a new div to hold the text and button
+            const newItem = document.createElement("div");
+            newItem.className = "item-container";
+
+            // 2. MODIFY: Add content to the new element
+            // We use innerHTML to quickly add the text and a button
+            newItem.innerHTML = `
+                <div class="list-item">${input.value}</div>
+                <button class="del-btn" onclick="removeItem(this)">Remove</button>
+            `;
+
+            // 3. APPEND: Add the new element into the container
+            container.appendChild(newItem);
+
+            // Clear input for the next item
+            input.value = "";
+        }
+
+        // 4. REMOVE: Remove a specific child node
+        function removeItem(button) {
+            // 'button' is the element clicked
+            // parentNode is the 'item-container' div
+            const itemToRemove = button.parentNode;
+            itemToRemove.remove();
+        }
+
+        function clearAll() {
+            const container = document.getElementById("list-container");
+            // Removes all children until the container is empty
+            container.innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>

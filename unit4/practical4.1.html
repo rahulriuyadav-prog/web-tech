@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 15: DOM Manipulation</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .box { 
+            padding: 15px; 
+            border: 2px dashed #3498db; 
+            margin-top: 10px; 
+            border-radius: 8px;
+        }
+        .highlight { color: #e67e22; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>DOM Control Center</h2>
+
+    <div id="message-box" class="box">
+        Original text inside the box.
+    </div>
+
+    <p class="description">This is a paragraph with a class.</p>
+
+    <br>
+    <button onclick="changeById()">Change by ID</button>
+    <button onclick="changeByQuery()">Change by QuerySelector</button>
+
+    <script>
+        // 1. Using getElementById()
+        // Best for selecting a specific, unique element
+        function changeById() {
+            const element = document.getElementById("message-box");
+            
+            // Using innerHTML to inject HTML tags (like <b>)
+            element.innerHTML = "Updated via <b>getElementById</b>!";
+            element.style.backgroundColor = "#ecf0f1";
+        }
+
+        // 2. Using querySelector()
+        // More flexible: uses CSS selectors (.class, #id, tag)
+        function changeByQuery() {
+            const element = document.querySelector(".description");
+            
+            // Using innerHTML to change plain text and add a span
+            element.innerHTML = "Status: <span class='highlight'>Changed using querySelector!</span>";
+        }
+    </script>
+
+</body>
+</html>
