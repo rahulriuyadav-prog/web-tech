@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div and Span Layout Example</title>
+    <style>
+        /* Container div */
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        /* Header section */
+        .header {
+            text-align: center;
+            font-size: 2rem;
+            color: #fff;
+            background-color: #4CAF50;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* Content div */
+        .content {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            flex: 1;
+            min-width: 200px;
+            background-color: #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Styling text inside box using span */
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Footer div */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="header">Div and Span Layout Example</div>
+
+        <div class="content">
+            <div class="box">
+                Box 1: <span class="highlight">Important Text</span>
+            </div>
+            <div class="box">
+                Box 2: <span class="highlight">Highlighted</span> content
+            </div>
+            <div class="box">
+                Box 3: <span class="highlight">Notice Me!</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Div and Span Example
+        </div>
+
+    </div>
+
+</body>
+</html>
