@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Task 13: User-Defined Functions & Scope</h2>
+    <div id="display"></div>
+
+    <script>
+        // 1. Defining the function with a parameter 'myName'
+        function showScopeDemo(myName) {
+            
+            // var is function-scoped (accessible anywhere inside this function)
+            var greeting = "Hello " + myName;
+
+            if (true) {
+                // let and const are block-scoped (locked inside these curly braces)
+                let status = "is currently learning JavaScript.";
+                const role = "Student";
+
+                // This works because we are INSIDE the block
+                document.write(greeting + " " + status + " (Role: " + role + ")<br>");
+            }
+
+            // --- SCOPE TEST ---
+            try {
+                // This will fail because 'status' only exists inside the 'if' block
+                console.log(status); 
+            } catch(e) {
+                document.write("<br><b>Scope Note:</b> 'status' (let) is not accessible outside its block.");
+            }
+        }
+
+        // 2. Invoking the function with a name
+        showScopeDemo("Rahul");
+
+    </script>
+</body>
+</html>

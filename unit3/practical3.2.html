@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>JavaScript Logic Lab</h2>
+
+    <script>
+        // 1. CONDITIONAL STATEMENT (If/Else)
+        let hour = 14; 
+        if (hour < 12) {
+            document.write("<b>Condition:</b> Good Morning<br>");
+        } else {
+            document.write("<b>Condition:</b> Good Afternoon<br>");
+        }
+
+        document.write("<hr>");
+
+        // 2. FOR LOOP (Counting to 3)
+        document.write("<b>For Loop:</b><br>");
+        for (let i = 1; i <= 3; i++) {
+            document.write("Number " + i + "<br>");
+        }
+
+        document.write("<hr>");
+
+        // 3. WHILE LOOP (Counting down)
+        document.write("<b>While Loop:</b><br>");
+        let count = 3;
+        while (count > 0) {
+            document.write("Counting: " + count + "<br>");
+            count--;
+        }
+
+        document.write("<hr>");
+
+        // 4. DO...WHILE LOOP (Runs at least once)
+        document.write("<b>Do...While Loop:</b><br>");
+        let x = 5;
+        do {
+            document.write("This runs once even if the condition is false.");
+        } while (x < 1);
+    </script>
+
+</body>
+</html>

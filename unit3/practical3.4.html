@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 14: Form Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .error-text { color: red; font-size: 12px; }
+        input { margin-bottom: 10px; padding: 8px; display: block; }
+    </style>
+</head>
+<body>
+
+    <h2>Register Account</h2>
+
+    <form onsubmit="return validateFinal()">
+        
+        <label>Username (min 5 chars):</label>
+        <input type="text" id="user" oninput="checkUsername()" placeholder="Enter name">
+        <span id="userHint" class="error-text"></span>
+
+        <label>Password:</label>
+        <input type="password" id="pass" placeholder="Enter password">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Real-time feedback using oninput
+        function checkUsername() {
+            let u = document.getElementById("user").value;
+            let hint = document.getElementById("userHint");
+
+            if (u.length < 5) {
+                hint.innerHTML = "Too short...";
+            } else {
+                hint.innerHTML = "Looking good!";
+                hint.style.color = "green";
+            }
+        }
+
+        // Final check using onsubmit
+        function validateFinal() {
+            let u = document.getElementById("user").value;
+            let p = document.getElementById("pass").value;
+
+            // Check if Username is empty or too short
+            if (u == "" || u.length < 5) {
+                alert("Please provide a valid Username (5+ characters).");
+                return false; // Blocks form from submitting
+            }
+
+            // Check if Password is empty
+            if (p == "") {
+                alert("Password cannot be empty!");
+                return false; // Blocks form from submitting
+            }
+
+            // If everything is correct
+            alert("Success! Form is being submitted.");
+            return true; // Allows form to submit
+        }
+    </script>
+
+</body>
+</html>
